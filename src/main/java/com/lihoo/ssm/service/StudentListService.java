@@ -24,4 +24,8 @@ public interface StudentListService {
     List<StudentList> selectAll();
 
     int updateByPrimaryKey(StudentList record);
+
+    List<StudentList> getJavaList();
+
+    List<StudentList> getWebList();
 }

@@ -1,7 +1,16 @@
 package com.lihoo.ssm.model;
 
+import java.io.Serializable;
+import java.util.Objects;
+
+/**
+ * @author lihoo
+ */
 @SuppressWarnings("unused")
-public class StudentList {
+public class StudentList implements Serializable {
+
+    private static final long serialVersionUID = 9174194101246733501L;
+
     private Long id;
 
     private String username;
@@ -149,6 +158,36 @@ public class StudentList {
 
     public void setUpdateAt(Long updateAt) {
         this.updateAt = updateAt;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof StudentList)) {
+            return false;
+        }
+        StudentList that = (StudentList) o;
+        return Objects.equals(id, that.id) &&
+                Objects.equals(username, that.username) &&
+                Objects.equals(qqNum, that.qqNum) &&
+                Objects.equals(studyType, that.studyType) &&
+                Objects.equals(studyTime, that.studyTime) &&
+                Objects.equals(school, that.school) &&
+                Objects.equals(studyId, that.studyId) &&
+                Objects.equals(dailyLink, that.dailyLink) &&
+                Objects.equals(promise, that.promise) &&
+                Objects.equals(teachBro, that.teachBro) &&
+                Objects.equals(knowUsFrom, that.knowUsFrom) &&
+                Objects.equals(createAt, that.createAt) &&
+                Objects.equals(updateAt, that.updateAt);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(id, username, qqNum, studyType, studyTime, school, studyId, dailyLink, promise, teachBro, knowUsFrom, createAt, updateAt);
     }
 
     @Override

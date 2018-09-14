@@ -21,9 +21,9 @@
     where id = #{id,jdbcType=BIGINT}
   </delete>
   <insert id="insert" parameterType="com.lihoo.ssm.model.StudentList">
-    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Long">
-      SELECT LAST_INSERT_ID()
-    </selectKey>
+    <!--<selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Long">-->
+      <!--SELECT LAST_INSERT_ID()-->
+    <!--</selectKey>-->
     insert into student_list (id, username, qq_num, 
       study_type, study_time, school, 
       study_id, daily_link, promise, 
@@ -62,4 +62,20 @@
     promise, teach_bro, know_us_from, create_at, update_at
     from student_list
   </select>
+
+  <select id="getJavaList" resultMap="BaseResultMap">
+    SELECT *
+    FROM student_list
+    WHERE find_in_set('java', study_type)
+  </select>
+
+  <select id="getWebList" resultMap="BaseResultMap">
+    SELECT *
+    FROM student_list
+    WHERE find_in_set('web', study_type)
+  </select>
+
+
+
+
 </mapper>

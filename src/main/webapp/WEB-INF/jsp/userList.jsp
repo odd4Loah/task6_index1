@@ -72,20 +72,118 @@
             <form method="post" action="userList">
                 <input type="hidden" name="_method" value="POST">
 
-                学生姓名：     <input type="text" name="username" value="安度因"><br><br>
-                学生QQ:       <input type="number" name="qqNum" value="932233560"><br><br>
-                学生职业类型：  <input type="text" name="studyType" value="java"><br><br>
-                预计入学时间：  <input type="text" name="studyTime" value="1533712935"><br><br>
-                毕业院校：     <input type="text" name="school" value="艾泽拉斯大学"><br><br>
-                线上学号：     <input type="text" name="studyId" value="java-4835"><br><br>
-                日报链接：     <input type="text" name="dailyLink" value="www.real_shit.com"><br><br>
-                立愿：        <input type="text" name="promise" value="我再上四个我就是狗"><br><br>
-                辅导师兄：     <input type="text" name="teachBro" value="舞厅鸭Bill"><br><br>
-                何处了解修真院：<input type="text" name="knowUsFrom" value="知乎"><br><br>
-                创建时间：     <input type="text" name="createAt" value="1533713315"><br><br>
-                最后更新时间：  <input type="text" name="updateAt" value="1533714545"><br><br>
+                <div class="panel-body">
+                    <div style="margin-bottom: .2rem;" class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">学生姓名：</label>
+                                <div class="col-md-8">
+                                    <input type="text" name="username" value="安度因">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">学生QQ: </label>
+                                <div class="col-md-8">
+                                    <input type="number" name="qqNum" value="932233560">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">学生职业类型：</label>
+                                <div class="col-md-8">
+                                    <input type="text" name="studyType" value="java">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-bottom: .2rem;" class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">预计入学时间：</label>
+                                <div class="col-md-8">
+                                    <input type="text" name="studyTime" value="1533712935">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">毕业院校：</label>
+                                <div class="col-md-8">
+                                    <input type="text" name="school" value="艾泽拉斯大学">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">线上学号： </label>
+                                <div class="col-md-8">
+                                    <input type="text" name="studyId" value="java-4835">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-bottom: .2rem;" class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">日报链接：</label>
+                                <div class="col-md-8">
+                                    <input type="text" name="dailyLink" value="www.real_shit.com">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">立愿：</label>
+                                <div class="col-md-8">
+                                    <input type="text" name="promise" value="我再上四个我就是狗">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">辅导师兄：</label>
+                                <div class="col-md-8">
+                                    <input type="text" name="teachBro" value="舞厅鸭Bill">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-bottom: .2rem;" class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">何处了解修真院：</label>
+                                <div class="col-md-8">
+                                    <input type="text" name="knowUsFrom" value="知乎">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">创建时间： </label>
+                                <div class="col-md-8">
+                                    <input type="text" name="createAt" value="1533713315">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">最后更新时间：</label>
+                                <div class="col-md-8">
+                                    <input type="text" name="updateAt" value="1533714545">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-                <input class="btn-success" type="submit" value="试试增加一个用户" >
+                    <div class="row">
+                        <input style="font-size: x-large" class="btn-success" type="submit" value="试试增加一个用户" >
+                    </div>
+
+                </div>
+
             </form>
         </div>
 
