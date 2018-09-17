@@ -38,8 +38,8 @@ import static com.lihoo.ssm.util.MD5Utils.getPwdHash;
  */
 
 @SuppressWarnings("unused")
-//@Controller
-@RestController
+@Controller
+//@RestController
 public class StudentController {
 //    打印日志
     private static Logger logger = LogManager.getLogger(StudentController.class);
@@ -179,57 +179,57 @@ public class StudentController {
     @Autowired
     StudentHomeService studentHomeService;
 //  主页
-//    @RequestMapping("/index")
-//    public String home(Model model, HttpServletRequest request) throws Exception {
-//        //header信息展示
-//        String[] status = LoginStatus.status(request);
-//        logger.info("我王境泽就是饿死：" + status);
-//        model.addAttribute("status", status);
-//        //页面信息
-//        List<StudentHome> selectGreatStudent = studentHomeService.selectGreatStudent();
-//        int countAll = studentHomeService.countAll();
-//        int workingCount = studentHomeService.workingCount();
-//        model.addAttribute("selectGreatStudent", selectGreatStudent);
-//        model.addAttribute("countAll", countAll);
-//        model.addAttribute("workingCount", workingCount);
-//        return "main.home";
-//    }
+    @RequestMapping("/index")
+    public String home(Model model, HttpServletRequest request) throws Exception {
+        //header信息展示
+        String[] status = LoginStatus.status(request);
+        logger.info("我王境泽就是饿死：" + status);
+        model.addAttribute("status", status);
+        //页面信息
+        List<StudentHome> selectGreatStudent = studentHomeService.selectGreatStudent();
+        int countAll = studentHomeService.countAll();
+        int workingCount = studentHomeService.workingCount();
+        model.addAttribute("selectGreatStudent", selectGreatStudent);
+        model.addAttribute("countAll", countAll);
+        model.addAttribute("workingCount", workingCount);
+        return "main.home";
+    }
     //给一个Json
     //验证一下RestController
-    @RequestMapping(value = "/index", method = RequestMethod.GET)
-    public List<StudentHome> findStuIndex() throws Exception {
-        logger.info("获取list的Json");
-        return studentHomeService.selectAll();
-    }
+//    @RequestMapping(value = "/index", method = RequestMethod.GET)
+//    public List<StudentHome> findStuIndex() throws Exception {
+//        logger.info("获取list的Json");
+//        return studentHomeService.selectAll();
+//    }
 
     @Autowired
     StudentProfessionService studentProfessionService;
 
 //  职业
-//    @RequestMapping(value = "/u/profession")
-//    public String profession(HttpServletRequest request, HttpServletResponse response,Model model) throws Exception {
-//        System.out.println("****拦截器判断进入**职业展示");
-//        //header信息展示
-//        String[] status = LoginStatus.status(request);
-//        logger.info("从这跳下去：" + status);
-//        model.addAttribute("status", status);
-//        //页面信息展示
-//        List<StudentProfession> selectAll = studentProfessionService.selectAll();
-//        model.addAttribute("selectAll", selectAll);
-//        int countAll = studentProfessionService.countAll();
-//        model.addAttribute("countAll", countAll);
-//        return "profession.home";
-//    }
-    //给一个Json
-    @RequestMapping(value = "/u/profession" ,method = RequestMethod.GET)
-    public List<StudentProfession> studentProfessions() {
-
-        int countAll = studentProfessionService.countAll();
-
+    @RequestMapping(value = "/u/profession")
+    public String profession(HttpServletRequest request, HttpServletResponse response,Model model) throws Exception {
+        System.out.println("****拦截器判断进入**职业展示");
+        //header信息展示
+        String[] status = LoginStatus.status(request);
+        logger.info("从这跳下去：" + status);
+        model.addAttribute("status", status);
+        //页面信息展示
         List<StudentProfession> selectAll = studentProfessionService.selectAll();
-
-        return selectAll;
+        model.addAttribute("selectAll", selectAll);
+        int countAll = studentProfessionService.countAll();
+        model.addAttribute("countAll", countAll);
+        return "profession.home";
     }
+    //给一个Json
+//    @RequestMapping(value = "/u/profession" ,method = RequestMethod.GET)
+//    public List<StudentProfession> studentProfessions() {
+//
+//        int countAll = studentProfessionService.countAll();
+//
+//        List<StudentProfession> selectAll = studentProfessionService.selectAll();
+//
+//        return selectAll;
+//    }
 
 
     //  推荐
@@ -248,51 +248,51 @@ public class StudentController {
     /**
      * 用户列表
      */
-//    @RequestMapping(value = "/u/userList", method = RequestMethod.GET)
-//    public String userList(HttpServletRequest request, HttpServletResponse response,
-//                           Model model, Page page, StudentList studentList) throws Exception {
-//        System.out.println("****拦截器会去判断能不能进入**用户列表");
-//        PageHelper.offsetPage(page.getStart(), 10);
-//        //header信息展示
-//        String[] status = LoginStatus.status(request);
-//        logger.info("哎呀，真香：" + status);
-//        model.addAttribute("status", status);
-//        //学生列表
-//        List<StudentList> stusList = studentListService.selectAll();
-//        int totalPage = (int) new PageInfo<>(stusList).getTotal();
-//        page.caculateLast(totalPage);
-//        model.addAttribute("stusList" ,stusList);
-//        return "userList.home";
-//    }
-    //给一个Json
     @RequestMapping(value = "/u/userList", method = RequestMethod.GET)
-    public List<StudentList> studentListList() {
-        return studentListService.selectAll();
+    public String userList(HttpServletRequest request, HttpServletResponse response,
+                           Model model, Page page, StudentList studentList) throws Exception {
+        System.out.println("****拦截器会去判断能不能进入**用户列表");
+        PageHelper.offsetPage(page.getStart(), 10);
+        //header信息展示
+        String[] status = LoginStatus.status(request);
+        logger.info("哎呀，真香：" + status);
+        model.addAttribute("status", status);
+        //学生列表
+        List<StudentList> stusList = studentListService.selectAll();
+        int totalPage = (int) new PageInfo<>(stusList).getTotal();
+        page.caculateLast(totalPage);
+        model.addAttribute("stusList" ,stusList);
+        return "userList.home";
     }
+    //给一个Json
+//    @RequestMapping(value = "/u/userList", method = RequestMethod.GET)
+//    public List<StudentList> studentListList() {
+//        return studentListService.selectAll();
+//    }
 
 
     /**
      * 添加用户
      */
     //增加一个学生信息
-//    @RequestMapping(value = "/u/userList", method = RequestMethod.POST)
-////    public String addUser(HttpServletRequest request,HttpServletResponse response,
-////                          Model model,StudentList studentList) throws Exception {
-////        //header信息展示
-////        String[] status = LoginStatus.status(request);
-////        logger.info("摩的炸弹：" + status);
-////        model.addAttribute("status", status);
-////        //增加学生
-////        logger.info("增加学生");
-////        studentListService.insert(studentList);
-////        model.addAttribute("userList", studentList);
-////        return "redirect:/u/userList";
-////    }
-    //给一个Json
     @RequestMapping(value = "/u/userList", method = RequestMethod.POST)
-    public int addUserJson(@PathVariable StudentList studentList) {
-        return studentListService.insert(studentList);
+    public String addUser(HttpServletRequest request,HttpServletResponse response,
+                          Model model,StudentList studentList) throws Exception {
+        //header信息展示
+        String[] status = LoginStatus.status(request);
+        logger.info("摩的炸弹：" + status);
+        model.addAttribute("status", status);
+        //增加学生
+        logger.info("增加学生");
+        studentListService.insert(studentList);
+        model.addAttribute("userList", studentList);
+        return "redirect:/u/userList";
     }
+    //给一个Json
+//    @RequestMapping(value = "/u/userList", method = RequestMethod.POST)
+//    public int addUserJson(@PathVariable StudentList studentList) {
+//        return studentListService.insert(studentList);
+//    }
 
 
     /**

@@ -7,7 +7,10 @@ import com.lihoo.ssm.service.StudentListService;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -17,10 +20,13 @@ import java.util.List;
  * #Description: TODO
  * #author lihoo
  * #date 2018/9/10-18:27
+ * @author lihoo
  */
 
 @Service
+@Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
 public class StudentListServiceImpl implements StudentListService {
+//    @Cacheable(key = "getJavaList", value = javaList)
 
     public static Logger logger = LogManager.getLogger(StudentListServiceImpl.class);
 
